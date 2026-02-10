@@ -1,52 +1,98 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
 body {
   margin: 0;
-  background: #f4f6f8;
+  background: linear-gradient(135deg, #eef2f7, #e3ebf5);
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 30px 15px;
 }
 
+/* Container Card */
 .container {
   width: 100%;
-  max-width: 700px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 750px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
+/* Title */
 h1 {
   text-align: center;
+  margin-bottom: 10px;
 }
 
+/* Summary Cards */
 .summary {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 25px 0;
 }
 
 .summary div {
-  flex: 1;
+  background: #f7f9fc;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: inset 0 0 0 1px #e5e9f2;
+}
+
+.summary h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
 }
 
 .summary p {
-  font-size: 20px;
+  margin: 8px 0 0;
+  font-size: 22px;
   font-weight: bold;
 }
 
+/* Balance colors */
+#totalIncome {
+  color: #2e7d32;
+}
+
+#totalExpense {
+  color: #c62828;
+}
+
+#balance {
+  color: #1565c0;
+}
+
+/* Form */
 .form {
   display: grid;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 15px;
 }
 
 .form input,
 .form select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #dcdfe6;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: 0.2s;
 }
 
+.form input:focus,
+.form select:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px #e8f5e9;
+}
+
+/* Buttons */
 .buttons {
   display: flex;
   gap: 10px;
@@ -54,18 +100,102 @@ h1 {
 
 button {
   flex: 1;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 8px;
-  background: #4caf50;
-  color: white;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.2s;
 }
 
+/* Save */
+button:first-child {
+  background: linear-gradient(135deg, #4caf50, #43a047);
+  color: white;
+}
+
+button:first-child:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
+}
+
+/* Reset */
 button.reset {
-  background: #f44336;
+  background: linear-gradient(135deg, #f44336, #e53935);
+  color: white;
 }
 
+button.reset:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(244, 67, 54, 0.3);
+}
+
+/* Filters */
 .filters {
-  padding-top: 10px;
+  margin: 15px 0;
+  display: flex;
+  gap: 15px;
+  font-weight: 500;
+}
+
+/* Entry List */
+#entryList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Entry Item */
+#entryList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fbff;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+li.income span,
+li.expense span {
+  text-transform: capitalize;
+}
+
+/* Income & Expense Colors */
+li.income span {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+li.expense span {
+  color: #b73434;
+  font-weight: 600;
+}
+
+/* Action Buttons */
+.actions button {
+  margin-left: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  background: #4caf50;
+}
+
+.actions button:last-child {
+  background: #e53935;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .summary {
+    grid-template-columns: 1fr;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
 }
